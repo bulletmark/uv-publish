@@ -50,7 +50,7 @@ WARRANTY; without even the implied warranty of MERCHANTABILITY or
 FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License at
 <http://www.gnu.org/licenses/> for more details.
 
-[uv-publish]: https://github.com/bulletmark/ub-publish
+[uv-publish]: https://github.com/bulletmark/uv-publish
 [uv]: https://docs.astral.sh/uv/
 [uvx]: https://docs.astral.sh/uv/guides/tools/
 [uv_publish]: https://docs.astral.sh/uv/guides/publish/
