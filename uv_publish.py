@@ -46,7 +46,7 @@ def main() -> int:
                 opts.append(f'--password={password}')
 
         url = settings.get('repository')
-        if url:
+        if url and opts:
             opts.append(f'--publish-url={url}')
 
     res = subprocess.run(['uv', 'publish'] + opts + sys.argv[1:])

@@ -42,6 +42,12 @@ To upgrade:
 $ uvx uv-publish@latest --help
 ```
 
+To remove:
+
+```sh
+$ uv cache clean uv-publish
+```
+
 ## License
 
 Copyright (C) 2024 Mark Blakeney. This program is distributed under the
