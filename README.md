@@ -35,7 +35,7 @@ $ uvx uv-publish [uv publish options]
 To upgrade:
 
 ```sh
-$ uvx uv-publish@latest
+$ uvx uv-publish@latest --help
 ```
 
 ## License
