@@ -32,9 +32,19 @@ by [`uvx`][uvx] if you don't already have it):
 $ uvx uv-publish [uv publish options]
 ```
 
-E.g. if you use [`twine`][twine] to publish your package[s], you can
-change to [`uv-publish`][uv-publish] by replacing the command `twine
-upload dist/*` with `uvx uv-publish`.
+E.g. if you use [`twine`][twine] to publish your package[s] and you
+store your PyPi credentials in `~/.pypirc` then you can
+swap to [`uv-publish`][uv-publish] by simply changing the command:
+
+```sh
+$ twine upload dist/*
+```
+
+to:
+
+```sh
+$ uvx uv-publish
+```
 
 To upgrade:
 
