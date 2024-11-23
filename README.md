@@ -12,6 +12,16 @@ arguments are passed automatically at the start of the `uv publish`
 command line so they can be overridden manually by later arguments if
 required. 
 
+By default, `uv-publish` uses the `pypi` server configuration from your `~/.pypirc`.
+You can specify a different index server using the `--index`
+parameter in either of these formats:
+```bash
+uv-publish --index=testpypi  # using equals sign
+uv-publish --index testpypi  # using space
+```
+This allows you to easily switch between different package indexes
+(e.g., PyPI and TestPyPI) configured in your `~/.pypirc` file.
+
 Note that similar tools to push your Python packages to [PyPi][pypi]
 such as [`twine`][twine], [`hatch`][hatch], and [`flit`][flit] recognise
 the common [`~/.pypirc`][pypirc] file so this wrapper is created to
@@ -44,6 +54,18 @@ to:
 
 ```sh
 $ uvx uv-publish
+```
+
+For example, to publish to TestPyPI:
+```sh
+$ uvx uv-publish --index=testpypi
+# or
+$ uvx uv-publish --index testpypi
+```
+
+To publish to PyPI (default):
+```sh
+$ uvx uv-publish  # uses pypi by default
 ```
 
 To upgrade:

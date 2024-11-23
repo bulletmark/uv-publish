@@ -26,13 +26,31 @@ repository = https://test.pypi.org/legacy/
 '''
 
 def main() -> int:
+    # Manual parsing of --index parameter
+    args = sys.argv[1:]
+    index = 'pypi'  # default value
+    
+    # Handle --index=value format
+    remaining_args = []
+    for arg in args:
+        if arg.startswith('--index='):
+            index = arg.split('=', 1)[1]
+        elif arg == '--index' and remaining_args and not remaining_args[-1].startswith('-'):
+            index = remaining_args.pop()
+        else:
+            remaining_args.append(arg)
+
     config = ConfigParser()
     config.read_string(DEFAULT_CONFIG)
     if PYPIRC.exists():
         config.read(PYPIRC)
 
-    server = config['distutils']['index-servers'].strip().split()[0]
-    settings = config[server]
+    if index not in config:
+        print(f"Error: Index '{index}' not found in configuration.")
+        print("Available indexes:", ", ".join(name for name in config.sections() if name != 'distutils'))
+        return 1
+
+    settings = config[index]
     opts = []
     if user := settings.get('username'):
         password = settings.get('password')
@@ -49,7 +67,7 @@ def main() -> int:
         if url and opts:
             opts.append(f'--publish-url={url}')
 
-    res = subprocess.run(['uv', 'publish'] + opts + sys.argv[1:])
+    res = subprocess.run(['uv', 'publish'] + opts + remaining_args)
     return res.returncode
 
 if __name__ == '__main__':
