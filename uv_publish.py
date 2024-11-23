@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 '''
-Command line wrapper to run `uv publish` using default credentials from
-`~/.pypirc`.
+Command line wrapper to run `uv publish` with given arguments using
+default credentials from your `~/.pypirc`.
 '''
 from __future__ import annotations
 
+import argparse
 import subprocess
 import sys
 from configparser import ConfigParser
@@ -31,8 +32,17 @@ def main() -> int:
     if PYPIRC.exists():
         config.read(PYPIRC)
 
-    server = config['distutils']['index-servers'].strip().split()[0]
-    settings = config[server]
+    servers = config['distutils']['index-servers'].strip().split()
+    opt = argparse.ArgumentParser(description=__doc__)
+    opt.add_argument('--repository', '--repo', choices=servers,
+                     default=servers[0],
+                     help='Name of the repository to upload to (must match a '
+                     f'repository in your {PYPIRC.name} file). '
+                     'Default is "%(default)s".')
+
+    args, rest = opt.parse_known_args()
+
+    settings = config[args.repository]
     opts = []
     if user := settings.get('username'):
         password = settings.get('password')
@@ -49,7 +59,7 @@ def main() -> int:
         if url and opts:
             opts.append(f'--publish-url={url}')
 
-    res = subprocess.run(['uv', 'publish'] + opts + sys.argv[1:])
+    res = subprocess.run(['uv', 'publish'] + opts + rest)
     return res.returncode
 
 if __name__ == '__main__':

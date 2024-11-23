@@ -15,5 +15,8 @@ build:
 upload: build
 	uv-publish
 
+doc:
+	update-readme-usage
+
 clean:
 	@rm -vrf *.egg-info .venv/ build/ dist/ __pycache__

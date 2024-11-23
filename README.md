@@ -1,8 +1,8 @@
-## UV-PUBLISH - run `uv publish` using default credentials from `~/.pypirc`
+## UV-PUBLISH - run `uv publish` using credentials from your `~/.pypirc`
 [![PyPi](https://img.shields.io/pypi/v/uv-publish)](https://pypi.org/project/uv-publish/)
 
 [`uv-publish`][uv-publish] is a simple command line wrapper to run [`uv
-publish`][uv_publish] using your default configured Python [PyPi][pypi]
+publish`][uv_publish] using your configured Python [PyPi][pypi]
 credentials from your [`~/.pypirc`][pypirc] file. Simply run
 `uv-publish` instead of `uv publish` with any of the options and
 arguments that `uv publish` normally accepts. `uv-publish` will read
@@ -16,6 +16,15 @@ Note that similar tools to push your Python packages to [PyPi][pypi]
 such as [`twine`][twine], [`hatch`][hatch], and [`flit`][flit] recognise
 the common [`~/.pypirc`][pypirc] file so this wrapper is created to
 enable [`uv publish`][uv_publish] to do the same.
+
+By default `uv-publish` will use the first repository in your
+`~/.pypirc` file (defaulting to `pypi` if the file does not exist). You
+can specify the repository to use from your `~./pypirc` file with the
+`--repository` (or `--repo`) option. This is the only option that
+`uv-publish` accepts itself, all other options and arguments are passed
+directly to `uv publish`. Note that `--repository` is the same switch
+that `twine` and `flit` accept, and `--repo` is the same switch that
+`hatch` accepts so both are supported by `uv-publish`.
 
 This utility has been developed and tested on Linux but should also work
 on macOS and Windows although has not been tried on those platforms. The
@@ -56,6 +65,23 @@ To remove:
 
 ```sh
 $ uv cache clean uv-publish
+```
+
+## Usage
+
+Type `uv-publish -h` to view the usage summary:
+
+```
+usage: uv-publish [-h] [--repository {pypi,testpypi}]
+
+Command line wrapper to run `uv publish` with given arguments using default
+credentials from your `~/.pypirc`.
+
+options:
+  -h, --help            show this help message and exit
+  --repository {pypi,testpypi}, --repo {pypi,testpypi}
+                        Name of the repository to upload to (must match a
+                        repository in your .pypirc file). Default is "pypi".
 ```
 
 ## License
