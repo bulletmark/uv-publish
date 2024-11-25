@@ -1,5 +1,5 @@
 ## UV-PUBLISH - run `uv publish` using credentials from your `~/.pypirc`
-[![PyPi](https://img.shields.io/pypi/v/uv-publish)](https://pypi.org/project/uv-publish/)
+[![PyPi](https://img.shields.io/pypi/v/uv-publish)][uv-publish-py]
 
 [`uv-publish`][uv-publish] is a simple command line wrapper to run [`uv
 publish`][uv_publish] using your configured Python [PyPi][pypi]
@@ -24,7 +24,7 @@ can specify the repository to use from your `~./pypirc` file with the
 `uv-publish` accepts itself, all other options and arguments are passed
 directly to `uv publish`. Note that `--repository` is the same switch
 that `twine` and `flit` accept, and `--repo` is the same switch that
-`hatch` accepts so both are supported by `uv-publish`.
+`hatch` accepts, so both are supported by `uv-publish`.
 
 This utility has been developed and tested on Linux but should also work
 on macOS and Windows although has not been tried on those platforms. The
@@ -67,6 +67,10 @@ To remove:
 $ uv cache clean uv-publish
 ```
 
+Of course `uv-publish` is available from [PyPi][uv-publish-py] so you
+can choose to install it using [`pipx`][pipx] or [`pipxu`][pipxu] or
+[`uv tool`][uvtool] if you prefer a traditional approach.
+
 ## Usage
 
 Type `uv-publish -h` to view the usage summary:
@@ -74,8 +78,9 @@ Type `uv-publish -h` to view the usage summary:
 ```
 usage: uv-publish [-h] [--repository {pypi,testpypi}]
 
-Command line wrapper to run `uv publish` with given arguments using default
-credentials from your `~/.pypirc`.
+Command line wrapper to run `uv publish` using default credentials from your
+`~/.pypirc`. All extra arguments supplied on the command line are passed to
+`uv publish`.
 
 options:
   -h, --help            show this help message and exit
@@ -105,5 +110,9 @@ FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License at
 [flit]: https://flit.readthedocs.io/
 [pypirc]: https://packaging.python.org/en/latest/specifications/pypirc/
 [pypi]: https://pypi.org/
+[uv-publish-py]: https://pypi.org/project/uv-publish/
+[pipx]: https://github.com/pypa/pipx
+[pipxu]: https://github.com/bulletmark/pipxu
+[uvtool]: https://docs.astral.sh/uv/guides/tools/#installing-tools
 
 <!-- vim: se ai syn=markdown: -->

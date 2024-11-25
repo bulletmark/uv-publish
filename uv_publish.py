@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 '''
-Command line wrapper to run `uv publish` with given arguments using
-default credentials from your `~/.pypirc`.
+Command line wrapper to run `uv publish` using default credentials from
+your `~/.pypirc`. All extra arguments supplied on the command line are
+passed to `uv publish`.
 '''
 from __future__ import annotations
 
