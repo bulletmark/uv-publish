@@ -39,7 +39,6 @@ ignore_missing_imports = true
 [tool.edit-lint]
 linters = [
   "ruff check",
-  "flake8",
   "mypy",
   "pyright",
 ]
