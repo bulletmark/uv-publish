@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-'''
+"""
 Command line wrapper to run `uv publish` using default credentials from
 your `~/.pypirc`. All extra arguments supplied on the command line are
 passed to `uv publish`.
-'''
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -14,7 +15,7 @@ from pathlib import Path
 
 PYPIRC = Path.home() / '.pypirc'
 
-DEFAULT_CONFIG = '''
+DEFAULT_CONFIG = """
 [distutils]
 index-servers =
     pypi
@@ -25,7 +26,8 @@ repository = https://upload.pypi.org/legacy/
 
 [testpypi]
 repository = https://test.pypi.org/legacy/
-'''
+"""
+
 
 def main() -> int:
     config = ConfigParser()
@@ -35,11 +37,15 @@ def main() -> int:
 
     servers = config['distutils']['index-servers'].strip().split()
     opt = argparse.ArgumentParser(description=__doc__)
-    opt.add_argument('--repository', '--repo', choices=servers,
-                     default=servers[0],
-                     help='Name of the repository to upload to (must match a '
-                     f'repository in your {PYPIRC.name} file). '
-                     'Default is "%(default)s".')
+    opt.add_argument(
+        '--repository',
+        '--repo',
+        choices=servers,
+        default=servers[0],
+        help='Name of the repository to upload to (must match a '
+        f'repository in your {PYPIRC.name} file). '
+        'Default is "%(default)s".',
+    )
 
     args, rest = opt.parse_known_args()
 
@@ -62,6 +68,7 @@ def main() -> int:
 
     res = subprocess.run(['uv', 'publish'] + opts + rest)
     return res.returncode
+
 
 if __name__ == '__main__':
     sys.exit(main())
