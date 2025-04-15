@@ -104,7 +104,7 @@ FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License at
 [uv-publish]: https://github.com/bulletmark/uv-publish
 [uv]: https://docs.astral.sh/uv/
 [uvx]: https://docs.astral.sh/uv/guides/tools/
-[uv_publish]: https://docs.astral.sh/uv/guides/publish/
+[uv_publish]: https://docs.astral.sh/uv/guides/package/#publishing-your-package
 [twine]: https://twine.readthedocs.io/
 [hatch]: https://hatch.pypa.io/
 [flit]: https://flit.readthedocs.io/
