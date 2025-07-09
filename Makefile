@@ -6,6 +6,7 @@ check:
 	ruff check $(PYFILES)
 	mypy $(PYFILES)
 	pyright $(PYFILES)
+	md-link-checker
 
 build:
 	rm -rf dist
