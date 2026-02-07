@@ -55,18 +55,6 @@ to:
 $ uvx uv-publish
 ```
 
-To upgrade:
-
-```sh
-$ uvx uv-publish@latest --help
-```
-
-To remove:
-
-```sh
-$ uv cache clean uv-publish
-```
-
 Of course `uv-publish` is available from [PyPi][uv-publish-py] so you
 can choose to install it using [`pipx`][pipx] or [`pipxu`][pipxu] or
 [`uv tool`][uvtool] if you prefer a traditional approach.
