@@ -72,7 +72,7 @@ Command line wrapper to run `uv publish` using default credentials from your
 
 options:
   -h, --help            show this help message and exit
-  --repository {pypi,testpypi}, --repo {pypi,testpypi}
+  --repository, --repo {pypi,testpypi}
                         Name of the repository to upload to (must match a
                         repository in your .pypirc file). Default is "pypi".
 ```
