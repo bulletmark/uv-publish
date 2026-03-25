@@ -38,11 +38,4 @@ ignore_missing_imports = true
 quote-style = "single"
 skip-magic-trailing-comma = true
 
-[tool.edit-lint]
-linters = [
-  "ruff check",
-  "mypy",
-  "pyright",
-]
-
 # vim:se sw=2:
