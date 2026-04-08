@@ -55,9 +55,9 @@ to:
 $ uvx uv-publish
 ```
 
-Of course `uv-publish` is available from [PyPi][uv-publish-py] so you
-can choose to install it using [`pipx`][pipx] or [`pipxu`][pipxu] or
-[`uv tool`][uvtool] if you prefer a traditional approach.
+Of course `uv-publish` is available from [PyPi][uv-publish-py] so you can
+choose to install it using [`uv tool install`][uvtool] if you prefer a traditional
+approach.
 
 ## Usage
 
@@ -99,8 +99,6 @@ FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License at
 [pypirc]: https://packaging.python.org/en/latest/specifications/pypirc/
 [pypi]: https://pypi.org/
 [uv-publish-py]: https://pypi.org/project/uv-publish/
-[pipx]: https://github.com/pypa/pipx
-[pipxu]: https://github.com/bulletmark/pipxu
 [uvtool]: https://docs.astral.sh/uv/guides/tools/#installing-tools
 
 <!-- vim: se ai syn=markdown: -->
