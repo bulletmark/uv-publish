@@ -17,14 +17,13 @@ such as [`twine`][twine], [`hatch`][hatch], and [`flit`][flit] recognise
 the common [`~/.pypirc`][pypirc] file so this wrapper is created to
 enable [`uv publish`][uv_publish] to do the same.
 
-By default `uv-publish` will use the first repository in your
-`~/.pypirc` file (defaulting to `pypi` if the file does not exist). You
-can specify the repository to use from your `~./pypirc` file with the
-`--repository` (or `--repo`) option. This is the only option that
-`uv-publish` accepts itself, all other options and arguments are passed
-directly to `uv publish`. Note that `--repository` is the same switch
-that `twine` and `flit` accept, and `--repo` is the same switch that
-`hatch` accepts, so both are supported by `uv-publish`.
+By default `uv-publish` will use the first repository in your `~/.pypirc` file
+(defaulting to `pypi` if the file does not exist). You can specify the
+repository to use from your `~./pypirc` file with the `--repository` (or
+`--repo`) option. This is the only option that `uv-publish` accepts itself, all
+other options and arguments are passed directly to `uv publish`. Note that
+`--repository` is the switch that `twine` and `flit` accept, and `--repo` is
+the switch that `hatch` accepts, so `uv-publish` accepts both.
 
 This utility has been developed and tested on Linux but should also work
 on macOS and Windows although has not been tried on those platforms. The
