@@ -1,4 +1,4 @@
-## UV-PUBLISH - run `uv publish` using credentials from your `~/.pypirc`
+## uv-publish - run `uv publish` using credentials from your `~/.pypirc`
 [![PyPi](https://img.shields.io/pypi/v/uv-publish)][uv-publish-py]
 
 [`uv-publish`][uv-publish] is a simple command line wrapper to run [`uv
