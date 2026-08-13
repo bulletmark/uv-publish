@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """
 Command line wrapper to run `uv publish` using default credentials from
 your `~/.pypirc`. All extra arguments supplied on the command line are
